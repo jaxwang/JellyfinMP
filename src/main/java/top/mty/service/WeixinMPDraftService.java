@@ -138,7 +138,7 @@ public class WeixinMPDraftService {
             movieContent.append("<br>");
           }
           // 添加描述
-          movieContent.append(entity.getOverview()).append("<br><br>");
+          movieContent.append(entity.getOverview()).append("<br>");
           // 添加演员图片
           fetchActors4ArticleContent(entity, movieContent);
           index++;
@@ -176,7 +176,7 @@ public class WeixinMPDraftService {
           }
           // 添加描述
           if (StringUtils.hasText(entity.getOverview())) {
-            episodesContent.append(entity.getOverview()).append("<br><br>");
+            episodesContent.append(entity.getOverview()).append("<br>");
           }
           // 添加演员图片
           fetchActors4ArticleContent(entity, episodesContent);
