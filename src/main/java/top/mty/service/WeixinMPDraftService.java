@@ -201,7 +201,7 @@ public class WeixinMPDraftService {
     if (null != itemCount) {
       sb.append("<br><strong>Jellyfin已收录<span style=\"color:#ab1942;\">").append(itemCount.getMovieCount()).append("</span>部电影, <span style=\"color:#ab1942;\">")
           .append(itemCount.getSeriesCount()).append("</span>个剧集 包含<span style=\"color:#ab1942;\">").append(itemCount.getEpisodeCount()).append("</span>单集. <strong><br>")
-          .append("<br><i>点击下方<strong>阅读原文</strong>可使用<strong>guest</strong>用户登录查看, 关注本公众号获取登录密码</i><br>");
+          .append("<br><i>点击下方<strong>“阅读原文“</strong>可使用<strong>「guest」</strong>用户登录查看, 关注本公众号获取登录密码</i><br>");
     }
   }
 
