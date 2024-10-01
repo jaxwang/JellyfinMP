@@ -50,7 +50,7 @@ public class WeixinMPDraftService {
 
   public void createDraft(WeixinMPAfterDraft afterDraft) throws JellyfinMPException {
     Date now = new Date();
-    Date start = DateUtils.addDays(now, -2);
+    Date start = DateUtils.addDays(now, -30);
     QueryWrapper<JellyfinWebhookEntity> wrapper = new QueryWrapper<>();
     wrapper.ge("timestamp", start);
     wrapper.eq("processed", false);
