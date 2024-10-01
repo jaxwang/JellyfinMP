@@ -125,7 +125,7 @@ public class WeixinMPDraftService {
           // 添加视频格式
           movieContent.append("<br><em style=\"font-size:14px;\">【").append(findResolution(entity)).append("】</em>");
 
-          movieContent.append("<br><br>");
+          movieContent.append("<br>");
           // 添加图片
           try {
             String imageUrl = processEntityImage(entity);
@@ -162,7 +162,7 @@ public class WeixinMPDraftService {
           if(StringUtils.hasText(video_title)){
             episodesContent.append("<br><em style=\"font-size:14px;\">【").append(video_title).append("】</em> ");
           }
-          episodesContent.append("<br><br>");
+          episodesContent.append("<br>");
           // 添加图片
           try {
             String imageUrl = processEntityImage(entity);
@@ -181,7 +181,7 @@ public class WeixinMPDraftService {
           // 添加演员图片
           fetchActors4ArticleContent(entity, episodesContent);
           if (StringUtils.hasText(entity.getSeasonEpisode())) {
-            episodesContent.append("更新单集如下: ").append(entity.getSeasonEpisode()).append("<br>");
+            episodesContent.append("更新单集如下: ").append(entity.getSeasonEpisode()).append("<br><br>");
           }
           index++;
         }
