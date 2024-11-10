@@ -47,7 +47,7 @@ public class WeixinMPDraftCreateRequest {
      * 图文消息的原文地址，即点击“阅读原文”后的URL
      */
     @JsonProperty("content_source_url")
-    private String contentSourceUrl = "https://s.c1ns.cn/nbQUk";
+    private String contentSourceUrl = "https://url.1989000.xyz/e27jrs";
     /**
      * 图文消息的封面图片素材id（必须是永久MediaID）
      */
