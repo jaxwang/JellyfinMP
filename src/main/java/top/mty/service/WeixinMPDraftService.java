@@ -119,12 +119,12 @@ public class WeixinMPDraftService {
       for (JellyfinWebhookEntity entity : processedEntities) {
         if (JellyfinWebhookProperties.ITEM_TYPE_MOVIE.equals(entity.getItemType())) {
           // 添加标题
-          movieContent.append("<section>" + index).append(". <span style=\"color: #007aaa;font-size: 18px;\">").append(entity.getName()).append("</span> <em style=\"font-size: 16px;\">(").append(entity.getYear()).append(")</em> ");
+          movieContent.append("<section>" + index).append(". <span style=\"color: #007aaa;font-size: 18px;\">").append(entity.getName()).append("</span> ㅤ <em style=\"font-size: 16px;\">(").append(entity.getYear()).append(")</em> ");
           // 添加分级和评分
           fetchExtra4ArticleContent(entity, movieContent);
           movieContent.append("</section>");
           // 添加视频格式
-          movieContent.append("<br><section><em style=\"font-size:14px;\">【").append(findResolution(entity)).append("】</em> </section>");
+          movieContent.append("<section><em style=\"font-size:14px;\">【").append(findResolution(entity)).append("】</em> </section>");
 
           movieContent.append("<br>");
           // 添加图片
@@ -154,7 +154,7 @@ public class WeixinMPDraftService {
       for (JellyfinWebhookEntity entity : processedEntities) {
         if (JellyfinWebhookProperties.ITEM_TYPE_SERIES.equals(entity.getItemType())) {
           // 添加标题
-          episodesContent.append( "<section>" + index).append(". <span style=\"color: #407600;font-size: 18px;\">").append(entity.getName()).append("</span> <em style=\"font-size: 16px;\">(").append(entity.getYear()).append(")</em> ");
+          episodesContent.append( "<section>" + index).append(". <span style=\"color: #407600;font-size: 18px;\">").append(entity.getName()).append("</span> ㅤ <em style=\"font-size: 16px;\">(").append(entity.getYear()).append(")</em> ");
           // 添加分级和评分
           fetchExtra4ArticleContent(entity, episodesContent);
 
@@ -163,7 +163,7 @@ public class WeixinMPDraftService {
           String video_title = findResolution(entity);
 
           if(StringUtils.hasText(video_title)){
-            episodesContent.append("<br> <section> <em style=\"font-size:14px;\">【").append(video_title).append("】</em> </section>");
+            episodesContent.append("<section> <em style=\"font-size:14px;\">【").append(video_title).append("】</em> </section>");
           }
           episodesContent.append("<br>");
           // 添加图片
