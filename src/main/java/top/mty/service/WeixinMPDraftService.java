@@ -55,6 +55,7 @@ public class WeixinMPDraftService {
     wrapper.ge("timestamp", start);
     wrapper.eq("processed", false);
     wrapper.eq("notification_type", JellyfinWebhookProperties.NOTIFICATION_TYPE_PLAYBACK_ITEM_ADDED);
+
     List<JellyfinWebhookEntity> itemAddedRawList = webhookService.getEntities(wrapper);
     if (CollectionUtils.isEmpty(itemAddedRawList)) {
       log.info("没有新增媒体: {} - {}", start, now);
@@ -183,9 +184,11 @@ public class WeixinMPDraftService {
           }
           // 添加演员图片
           fetchActors4ArticleContent(entity, episodesContent);
+          /*
           if (StringUtils.hasText(entity.getSeasonEpisode())) {
             episodesContent.append("更新单集如下: ").append(entity.getSeasonEpisode()).append("<br><br>");
           }
+          */
           index++;
         }
       }
@@ -203,8 +206,8 @@ public class WeixinMPDraftService {
     JellyfinItemCount itemCount = webhookService.getItemCount();
     if (null != itemCount) {
       sb.append("<br><strong>Jellyfin已收录<span style=\"color:#ab1942;\">").append(itemCount.getMovieCount()).append("</span>部电影, <span style=\"color:#ab1942;\">")
-          .append(itemCount.getSeriesCount()).append("</span>个剧集 包含<span style=\"color:#ab1942;\">").append(itemCount.getEpisodeCount()).append("</span>单集. <strong><br>")
-          .append("<br><i>点击下方<strong>“阅读原文”</strong>可使用<strong>「guest」</strong>用户登录查看, 关注本公众号获取登录密码</i><br>");
+          .append(itemCount.getSeriesCount()).append("</span>部剧集：包含<span style=\"color:#ab1942;\">").append(itemCount.getEpisodeCount()).append("</span>个单集. <strong><br>");
+          //.append("<br><i>点击下方<strong>“阅读原文”</strong>可使用<strong>「guest」</strong>用户登录查看, 关注本公众号获取登录密码</i><br>")
     }
   }
 
@@ -229,7 +232,7 @@ public class WeixinMPDraftService {
     if (CollectionUtils.isEmpty(extra4ArticleContent.getActorList())) {
       return;
     }
-    articleContent.append("<strong>演职人员 (滑动查看):</strong><br>");
+    articleContent.append("<br><strong>演职人员 (滑动查看):</strong><br>");
     articleContent.append("<section style=\"overflow-x: auto; white-space: nowrap;\">");
     String actorImage = "<section style=\"display: inline-block; vertical-align: top; text-align: center; padding: 10px; width: 120px; white-space: normal;\"><img src=\"%s\" alt=\"%s\" style=\"width: 100px; height: 100px;\"><p style=\"font-size: 10px;\">%s<br>饰演: %s</p></section>";
     extra4ArticleContent.getActorList().forEach(a -> articleContent.append(String.format(actorImage, a.getImageUrl(), a.getName(), a.getName(), a.getRole())));

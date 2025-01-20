@@ -83,7 +83,7 @@ public class WeixinMPDraftCreateRequest {
     public ArticlesDTO defaultJellyfinItemAddArticle() {
       ArticlesDTO result = new ArticlesDTO();
       result.setTitle("Jellyfin " + DateUtil.toStandardYMD(new Date()) + " 更新");
-      result.setAuthor("勤奋的搬运工");
+      result.setAuthor("勤奋的管理员");
       return result;
     }
   }
